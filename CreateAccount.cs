@@ -43,9 +43,7 @@ namespace CrestAccountingSystem
                 ParseFields();
                 CheckForValidEmail();
                 CheckForValidPhoneNumber();
-				var accountContact = new AccountContact(AccountNameTextBox.Text, AccountContactNameTextBox.Text, 
-                                                 PhoneNumberTextBox.Text, EmailTextBox.Text);
-                var account = new Account(accountContact);
+				// create new account here
             }
             catch (FormatException) // we catch this exception so that we can take advantage of MailAddress throwing an exception
             {

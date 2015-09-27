@@ -52,6 +52,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AccountsReceivablePayable";
             this.Text = "AccountsReceivablePayable";
+            this.Load += new System.EventHandler(this.AccountsReceivablePayable_Load);
             this.ResumeLayout(false);
 
         }
