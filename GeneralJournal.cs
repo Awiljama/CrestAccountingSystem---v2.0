@@ -22,6 +22,8 @@ namespace CrestAccountingSystem
         private void GeneralJournal_Load(object sender, EventArgs e)
         {
             dataContext = new CTADataClassesDataContext();
+            dataGridView1.DataSource = from info in dataContext.Accounts
+                                       select info;
         }
 
         private void SaveChanges()

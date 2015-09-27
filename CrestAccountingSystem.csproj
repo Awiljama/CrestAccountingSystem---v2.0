@@ -66,6 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAAccount.cs" />
+    <Compile Include="CAAccountContact.cs" />
     <Compile Include="AccountsPayable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +132,12 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewAccountInformationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewAccountInformationView.Designer.cs">
+      <DependentUpon>NewAccountInformationView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccountsPayable.resx">
@@ -161,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewAccountInformationView.resx">
+      <DependentUpon>NewAccountInformationView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

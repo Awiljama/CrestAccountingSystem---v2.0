@@ -14,6 +14,7 @@ namespace CrestAccountingSystem
     {
         protected static CTADataClassesDataContext dataContext;
         public MainMenu MainMenu { get; set; }
+        public CAAccount Account;
         protected AccountsReceivablePayable()
         {
             InitializeComponent();
