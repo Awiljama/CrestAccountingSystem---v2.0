@@ -14,6 +14,7 @@ namespace CrestAccountingSystem
     {
         private static CTADataClassesDataContext dataContext;
         public MainMenu MainMenu { get; set; }
+
         public GeneralJournal()
         {
             InitializeComponent();

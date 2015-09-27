@@ -15,6 +15,7 @@ namespace CrestAccountingSystem
         protected static CTADataClassesDataContext dataContext;
         public MainMenu MainMenu { get; set; }
         public CAAccount Account;
+
         protected AccountsReceivablePayable()
         {
             InitializeComponent();
@@ -49,6 +50,14 @@ namespace CrestAccountingSystem
             }
         }
 
-        
+        private void addNewTransactionButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void switchViewButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

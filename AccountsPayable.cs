@@ -12,9 +12,28 @@ namespace CrestAccountingSystem
 {
     public partial class AccountsPayable : AccountsReceivablePayable
     {
+        public AccountsReceivable AccountsReceivable;
         public AccountsPayable() : base()
         {
             InitializeComponent();
+        }
+
+        override public void switchViewButton_Click(object sender, EventArgs e)
+        {
+            if (AccountsReceivable == null)
+            {
+                AccountsReceivable = new AccountsReceivable();
+                AccountsReceivable.Account = Account;
+                AccountsReceivable.AccountsPayable = this;
+            }
+
+            AccountsReceivable.Show();
+            Hide();
+        }
+
+        private void AccountsPayable_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
