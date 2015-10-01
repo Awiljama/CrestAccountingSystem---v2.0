@@ -9,6 +9,7 @@ namespace CrestAccountingSystem
     public partial class CreateAccount : Form
     {
         private List<TextBox> Fields;
+        private CAAccount CAAccount;
         const string EMAIL_MESSAGE = "Please enter a valid email address";
         const string EMAIL_CAPTION = "INVALID EMAIL";
         const string FIELD_VALIDATION_MESSAGE = "All fields must be completed";
@@ -16,7 +17,7 @@ namespace CrestAccountingSystem
         const string PHONE_MESSAGE = "Please enter a valid phone number";
         const string PHONE_CAPTION = "INVALID PHONE NUMBER";
 		const int MAX_PHONE_VALUE = 9999;
-        const string PHONE_NUMBER_FORMAT_PLACEHOLDER = "xxx-xxx-xxxx";
+        const string PHONE_NUMBER_FORMAT_PLACEHOLDER = "XXX-XXX-XXXX";
         public MainMenu MainMenu { get; set; }
 
         public CreateAccount()
@@ -43,9 +44,19 @@ namespace CrestAccountingSystem
                 ParseFields();
                 CheckForValidEmail();
                 CheckForValidPhoneNumber();
-				var accountContact = new AccountContact(AccountNameTextBox.Text, AccountContactNameTextBox.Text, 
-                                                 PhoneNumberTextBox.Text, EmailTextBox.Text);
-                var account = new Account(accountContact);
+                var success = AddNewAccount();
+                if (success)
+                {
+                    var newAccountView = new NewAccountInformationView();
+                    newAccountView.MainMenu = MainMenu;
+                    newAccountView.Account = CAAccount;
+                    newAccountView.Show();
+                    Close();
+                }
+                else
+                {
+                    ReturnToMainMenu();
+                }
             }
             catch (FormatException) // we catch this exception so that we can take advantage of MailAddress throwing an exception
             {
@@ -54,6 +65,21 @@ namespace CrestAccountingSystem
             catch (Exception)
             {
                 DisplayMessageBox(FIELD_VALIDATION_MESSAGE, FIELD_VALIDATION_CAPTION, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool AddNewAccount()
+        {
+            try
+            {
+                var accountContact = new CAAccountContact(AccountNameTextBox.Text, AccountContactNameTextBox.Text, PhoneNumberTextBox.Text, EmailTextBox.Text);
+                CAAccount = new CAAccount(accountContact);
+                return true;
+            }
+            catch (Exception createAccountException)
+            {
+                DisplayMessageBox("Error saving data: " + createAccountException.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
@@ -127,8 +153,13 @@ namespace CrestAccountingSystem
 
         private void MainMenuButton_Click(object sender, EventArgs e)
         {
+            ReturnToMainMenu();
+        }
+
+        private void ReturnToMainMenu()
+        {
             MainMenu.Show();
-            Hide();
+            Close();
         }
     }
 }

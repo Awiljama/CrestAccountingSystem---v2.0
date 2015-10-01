@@ -970,9 +970,11 @@ namespace CrestAccountingSystem {
             
             private global::System.Data.DataColumn columnTransactionDate;
             
-            private global::System.Data.DataColumn columnAmount;
+            private global::System.Data.DataColumn columnCredit;
             
             private global::System.Data.DataColumn columnComment;
+            
+            private global::System.Data.DataColumn columnDebit;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1033,9 +1035,9 @@ namespace CrestAccountingSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AmountColumn {
+            public global::System.Data.DataColumn CreditColumn {
                 get {
-                    return this.columnAmount;
+                    return this.columnCredit;
                 }
             }
             
@@ -1044,6 +1046,14 @@ namespace CrestAccountingSystem {
             public global::System.Data.DataColumn CommentColumn {
                 get {
                     return this.columnComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DebitColumn {
+                get {
+                    return this.columnDebit;
                 }
             }
             
@@ -1084,14 +1094,15 @@ namespace CrestAccountingSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TransactionRow AddTransactionRow(int TransactionID, AccountRow parentAccountRowByFK_Transaction_Account, System.DateTime TransactionDate, decimal Amount, string Comment) {
+            public TransactionRow AddTransactionRow(int TransactionID, AccountRow parentAccountRowByFK_Transaction_Account, System.DateTime TransactionDate, decimal Credit, string Comment, string Debit) {
                 TransactionRow rowTransactionRow = ((TransactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TransactionID,
                         null,
                         TransactionDate,
-                        Amount,
-                        Comment};
+                        Credit,
+                        Comment,
+                        Debit};
                 if ((parentAccountRowByFK_Transaction_Account != null)) {
                     columnValuesArray[1] = parentAccountRowByFK_Transaction_Account[0];
                 }
@@ -1127,8 +1138,9 @@ namespace CrestAccountingSystem {
                 this.columnTransactionID = base.Columns["TransactionID"];
                 this.columnAccountNumber = base.Columns["AccountNumber"];
                 this.columnTransactionDate = base.Columns["TransactionDate"];
-                this.columnAmount = base.Columns["Amount"];
+                this.columnCredit = base.Columns["Credit"];
                 this.columnComment = base.Columns["Comment"];
+                this.columnDebit = base.Columns["Debit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1140,10 +1152,12 @@ namespace CrestAccountingSystem {
                 base.Columns.Add(this.columnAccountNumber);
                 this.columnTransactionDate = new global::System.Data.DataColumn("TransactionDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransactionDate);
-                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAmount);
+                this.columnCredit = new global::System.Data.DataColumn("Credit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCredit);
                 this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnComment);
+                this.columnDebit = new global::System.Data.DataColumn("Debit", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDebit);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTransactionID}, true));
                 this.columnTransactionID.AllowDBNull = false;
@@ -1527,17 +1541,17 @@ namespace CrestAccountingSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Amount {
+            public decimal Credit {
                 get {
                     try {
-                        return ((decimal)(this[this.tableTransaction.AmountColumn]));
+                        return ((decimal)(this[this.tableTransaction.CreditColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'Transaction\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Credit\' in table \'Transaction\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTransaction.AmountColumn] = value;
+                    this[this.tableTransaction.CreditColumn] = value;
                 }
             }
             
@@ -1554,6 +1568,22 @@ namespace CrestAccountingSystem {
                 }
                 set {
                     this[this.tableTransaction.CommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Debit {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransaction.DebitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Debit\' in table \'Transaction\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransaction.DebitColumn] = value;
                 }
             }
             
@@ -1582,14 +1612,14 @@ namespace CrestAccountingSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAmountNull() {
-                return this.IsNull(this.tableTransaction.AmountColumn);
+            public bool IsCreditNull() {
+                return this.IsNull(this.tableTransaction.CreditColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAmountNull() {
-                this[this.tableTransaction.AmountColumn] = global::System.Convert.DBNull;
+            public void SetCreditNull() {
+                this[this.tableTransaction.CreditColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1602,6 +1632,18 @@ namespace CrestAccountingSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCommentNull() {
                 this[this.tableTransaction.CommentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDebitNull() {
+                return this.IsNull(this.tableTransaction.DebitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDebitNull() {
+                this[this.tableTransaction.DebitColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2614,7 +2656,7 @@ SELECT EmployeeId, UserName, Password FROM Employee WHERE (EmployeeId = @Employe
             tableMapping.ColumnMappings.Add("TransactionID", "TransactionID");
             tableMapping.ColumnMappings.Add("AccountNumber", "AccountNumber");
             tableMapping.ColumnMappings.Add("TransactionDate", "TransactionDate");
-            tableMapping.ColumnMappings.Add("Amount", "Amount");
+            tableMapping.ColumnMappings.Add("Amount", "Credit");
             tableMapping.ColumnMappings.Add("Comment", "Comment");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();

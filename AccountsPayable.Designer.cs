@@ -37,7 +37,9 @@
             this.ClientSize = new System.Drawing.Size(1143, 541);
             this.Name = "AccountsPayable";
             this.Text = "Crest Technologies Accounts Payable";
+            this.Load += new System.EventHandler(this.AccountsPayable_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

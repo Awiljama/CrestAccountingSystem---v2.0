@@ -66,8 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
-    <Compile Include="AccountContact.cs" />
+    <Compile Include="CAAccount.cs" />
+    <Compile Include="CAAccountContact.cs" />
     <Compile Include="AccountsPayable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,7 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrestAccountingDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CrestAccountingModel.cs" />
+    <Compile Include="CTADataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTADataClasses.dbml</DependentUpon>
+    </Compile>
     <Compile Include="GeneralJournal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +132,12 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewAccountInformationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewAccountInformationView.Designer.cs">
+      <DependentUpon>NewAccountInformationView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccountsPayable.resx">
@@ -142,14 +152,26 @@
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CTADataClasses.dbml.layout">
+      <DependentUpon>CTADataClasses.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="GeneralJournal.resx">
+      <DependentUpon>GeneralJournal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InventoryControl.resx">
       <DependentUpon>InventoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ledger.resx">
+      <DependentUpon>Ledger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewAccountInformationView.resx">
+      <DependentUpon>NewAccountInformationView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -171,6 +193,11 @@
     </None>
     <None Include="CrestAccountingDatabaseDataSet.xss">
       <DependentUpon>CrestAccountingDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CTADataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CTADataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -214,6 +241,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

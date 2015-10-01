@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CTADataClasses">
+  <DataContextMoniker Name="/CTADataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8a1288d6-b455-4351-9273-f2b5f94cd5bf" absoluteBounds="0.75, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/CTADataClassesDataContext/Account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="443bbadb-8e30-4a25-a4b1-c0baebbced9d" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="428514c2-0591-4e85-a60c-d6286febf1e9" absoluteBounds="0.75, 4.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/CTADataClassesDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="66db6b57-ead8-466b-9f69-7e2806d0593a" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ccc94c2f-feb8-4ed6-921f-8af4d638d624" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/CTADataClassesDataContext/CATransaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9050150c-759c-4ad4-80eb-91a300fe17b3" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.01044840494792); (3.5 : 2.01044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CTADataClassesDataContext/Account/Account_CATransaction" />
+      <nodes>
+        <classShapeMoniker Id="8a1288d6-b455-4351-9273-f2b5f94cd5bf" />
+        <classShapeMoniker Id="ccc94c2f-feb8-4ed6-921f-8af4d638d624" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="06a4ec77-6caa-42eb-8656-b15a2716d2d3" absoluteBounds="5.625, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CTADataClassesDataContext/AssetInventory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec1c7378-78c9-4695-88a3-70e73719afa9" absoluteBounds="5.64, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 5.03929768880208); (5.625 : 5.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CTADataClassesDataContext/Employee/Employee_AssetInventory" />
+      <nodes>
+        <classShapeMoniker Id="428514c2-0591-4e85-a60c-d6286febf1e9" />
+        <classShapeMoniker Id="06a4ec77-6caa-42eb-8656-b15a2716d2d3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

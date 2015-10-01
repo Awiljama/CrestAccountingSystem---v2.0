@@ -12,15 +12,23 @@ namespace CrestAccountingSystem
 {
     partial class AccountsReceivablePayable : Form
     {
+        protected static CTADataClassesDataContext dataContext;
         public MainMenu MainMenu { get; set; }
+        public CAAccount Account;
+
         protected AccountsReceivablePayable()
         {
             InitializeComponent();
         }
 
+        private void AccountsReceivablePayable_Load(object sender, EventArgs e)
+        {
+            dataContext = new CTADataClassesDataContext();
+        }
+
         private void SaveChanges()
         {
-
+            dataContext.SubmitChanges();
         }
 
         private void mainMenuButton_Click(object sender, EventArgs e)
@@ -40,6 +48,16 @@ namespace CrestAccountingSystem
                 case DialogResult.Cancel:
                     return;
             }
+        }
+
+        private void addNewTransactionButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void switchViewButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -12,6 +12,7 @@ namespace CrestAccountingSystem
 {
     public partial class InventoryControl : Form
     {
+        private static CTADataClassesDataContext dataContext;
         public MainMenu MainMenu { get; set; }
         public InventoryControl()
         {
@@ -20,12 +21,12 @@ namespace CrestAccountingSystem
 
         private void InventoryControl_Load(object sender, EventArgs e)
         {
-            
+            dataContext = new CTADataClassesDataContext();
         }
 
         private void SaveChanges()
         {
-
+            dataContext.SubmitChanges();
         }
 
         private void mainMenuButton_Click(object sender, EventArgs e)

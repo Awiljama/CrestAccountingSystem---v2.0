@@ -12,10 +12,21 @@ namespace CrestAccountingSystem
 {
     public partial class Ledger : Form
     {
+        private static CTADataClassesDataContext dataContext;
         public MainMenu MainMenu { get; set; }
         public Ledger()
         {
             InitializeComponent();
+        }
+
+        private void Ledger_Load(object sender, EventArgs e)
+        {
+            dataContext = new CTADataClassesDataContext();
+        }
+
+        private void mainMenuButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

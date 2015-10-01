@@ -36,3 +36,6 @@ E:\CSCI2999\CrestAccountingSystem-master\CrestAccountingSystem-master\CrestAccou
 E:\CSCI2999\CrestAccountingSystem-master\CrestAccountingSystem-master\CrestAccountingSystem\obj\Debug\CrestAccountingSystem.MainMenu.resources
 E:\CSCI2999\CrestAccountingSystem-master\CrestAccountingSystem-master\CrestAccountingSystem\obj\Debug\CrestAccountingSystem.Properties.Resources.resources
 E:\CSCI2999\CrestAccountingSystem-master\CrestAccountingSystem-master\CrestAccountingSystem\obj\Debug\CrestAccountingSystem.csproj.GenerateResource.Cache
+E:\CSCI2999\CrestAccountingSystem-master\CrestAccountingSystem-master\CrestAccountingSystem\obj\Debug\CrestAccountingSystem.GeneralJournal.resources
+E:\CSCI2999\CrestAccountingSystem-master\CrestAccountingSystem-master\CrestAccountingSystem\obj\Debug\CrestAccountingSystem.Ledger.resources
+E:\CSCI2999\CrestAccountingSystem-master\CrestAccountingSystem-master\CrestAccountingSystem\obj\Debug\CrestAccountingSystem.NewAccountInformationView.resources
